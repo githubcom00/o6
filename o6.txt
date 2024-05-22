@@ -1,0 +1,22 @@
+clear
+ if [ $# -lt 2 ]
+ then
+ echo "Enter atleast two filenames as arguments"
+ exit
+ fi
+ for word in `cat $1`
+ do
+ for file in $*
+ do
+ if [ "$file" != "$1" ]
+ then
+ echo "the word frequency of --$word--in the file is:
+ `grep -iow $word $file | wc -w`"
+ fi
+ done
+ done
+
+
+
+
+
